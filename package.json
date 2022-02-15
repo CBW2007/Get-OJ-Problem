@@ -1,0 +1,29 @@
+{
+  "name": "get-oj-problem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CBW2007/Get-OJ-Problem.git"
+  },
+  "keywords": [
+    "oj",
+    "problem",
+    "api"
+  ],
+  "author": "CBW2007 <2337118038@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CBW2007/Get-OJ-Problem/issues"
+  },
+  "homepage": "https://github.com/CBW2007/Get-OJ-Problem#readme",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^17.0.15",
+    "typescript": "^4.5.5"
+  }
+}
