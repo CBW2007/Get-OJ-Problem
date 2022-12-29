@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "tsc",
     "pretest": "npm run build",
     "test": "node test.js"
   },

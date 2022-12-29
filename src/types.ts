@@ -15,3 +15,4 @@ export interface ProblemData
 }
 
 export type Parser = (data: string) => ProblemData
+export type Spider = (pid: string) => Promise<string>

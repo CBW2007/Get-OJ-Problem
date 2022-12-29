@@ -1,23 +1,20 @@
-import { Parser, ProblemData, SupportedOj } from "./types"
+import { Parser, Spider, ProblemData, SupportedOj } from "./types"
 import * as parsers from './parsers'
-import axios from 'axios'
+import * as spiders from './spiders'
 
-const ojInfoList: {
+const tools: {
   [oj: string]: {
     parser: Parser,
-    src: string,
-    method: "get"
+    spider: Spider
   }
 } = {
   luogu: {
-    parser: parsers.luoguParser,
-    src: "https://www.luogu.com.cn/problem/$pid",
-    method: "get"
+    parser: parsers.luogu,
+    spider: spiders.luogu
   }
 }
 
-export async function getProblem(oj: SupportedOj, pid: string): Promise<ProblemData>{
-  if (!(oj in ojInfoList)) throw new Error("Unsupported OJ")
-  const ojInfo = ojInfoList[oj]
-  return ojInfo.parser((await axios[ojInfo.method](ojInfo.src.replace("$pid",pid))).data)
+export async function getProblem(oj: string, pid: string): Promise<ProblemData> {
+  if (!(oj in tools)) throw new Error("Unsupported OJ")
+  return tools[oj].parser(await(tools[oj].spider(pid)))
 }

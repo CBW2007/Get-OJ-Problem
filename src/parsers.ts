@@ -1,6 +1,6 @@
-import { ProblemData } from "../types"
+import { Parser } from './types'
 
-export default (data: string): ProblemData => {
+export const luogu: Parser = (data) => {
   const res = data.match("window._feInjection \\= JSON.parse\\(decodeURIComponent\\(\".+\"\\)\\);")
   if (!res) throw new Error("Cannot parse page content")
   const parsed = JSON.parse(decodeURIComponent(res[0].substring(53,res[0].length-4))).currentData.problem
